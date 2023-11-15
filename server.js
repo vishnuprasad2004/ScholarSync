@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 const dbConnect = require("./db")
 const { schedule } = require('./utils/mailer.scheduler');
 const Message = require('./models/messageModels');
-
+const { router } = require("./routes/routes")
 
 app.set('view engine', 'ejs');
 dbConnect()
@@ -14,7 +14,7 @@ dbConnect()
 // to access the inputs given in the form inside the req.body.[name attribute]
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/",require("./routes/routes"))
+app.use("/",router)
 
 
 app.get("/",(req, res) => {
