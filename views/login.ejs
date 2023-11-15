@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head.ejs') %>
+<body>
+    <div id="box">
+        <form action="/login" method="post">
+            <table>
+                <tr>
+                    <td colspan="2" align="left"><h1>Login</h1></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" value="Submit"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <%- include('footer.ejs') %>
+    <script>
+        document.title = "Login" 
+    </script>
+</body>
+</html>

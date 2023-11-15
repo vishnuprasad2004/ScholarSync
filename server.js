@@ -17,47 +17,47 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/",router)
 
 
-app.get("/",(req, res) => {
-    res.redirect("/create-event");
-})
+// app.get("/",(req, res) => {
+//     res.render("index.ejs")
+// })
 
-app.get("/done",(req, res) => {
-    res.status(200).send("<h1>Message Submitted</h1>")
-})
+// app.get("/done",(req, res) => {
+//     res.render("done.ejs")
+// })
 
-app.get("/create-event", (req, res) => {
-    res.render("createEvent")
-})
+// app.get("/create-event", (req, res) => {
+//     res.render("createEvent.ejs")
+// })
 
 
-app.post("/create-event",async(req, res) => {
+// app.post("/create-event",async(req, res) => {
     
-    let msg = {
-        name: req.body.eventName,
-        content: req.body.content,
-        link: req.body.eventLink || null,
-        slug: (req.body.eventName).replace(/\s/g,""),
-        branches: req.body.branch
-    }
-    console.log(msg);
-    try{
-        const newMessage = await Message.create({
-            name: req.body.eventName,
-            content: req.body.content,
-            link: req.body.eventLink || null,
-            slug: (req.body.eventName).replace(/\s/g,""),
-            branches: req.body.branch
-        })
-    } catch (e){
-        console.log(e)
-    }
-    // await newMessage.save()
-    res.redirect("/done")
-})
+//     let msg = {
+//         name: req.body.eventName,
+//         content: req.body.content,
+//         link: req.body.eventLink || null,
+//         slug: (req.body.eventName).replace(/\s/g,""),
+//         branches: req.body.branch
+//     }
+//     console.log(msg);
+//     try{
+//         const newMessage = await Message.create({
+//             name: req.body.eventName,
+//             content: req.body.content,
+//             link: req.body.eventLink || null,
+//             slug: (req.body.eventName).replace(/\s/g,""),
+//             branches: req.body.branch
+//         })
+//     } catch (e){
+//         console.log(e)
+//     }
+//     // await newMessage.save()
+//     res.redirect("/done")
+// })
 
 
 
 app.listen(PORT, () => {
     console.log(colors.green("SERVER:") + `listening on http://localhost:${PORT}`)
-    schedule()
+    // schedule()
 });

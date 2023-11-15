@@ -1,49 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-         @keyframes grad {
-            0% {
-                background-position: left;
-            }
-            100% {
-                background-position: right;
-            }
-        }
-        html {
-            font-family: 'Poppins', sans-serif;
-        }
-        body{ 
-            margin: 0;
-            height:100vh;
-            width:100vw;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: blueviolet;
-            font-weight: 300;
-            background-image: linear-gradient(45deg,blueviolet,orangered);
-            background-size: 900vh 900vw;
-            background-position: left;
-            animation: grad 4000ms linear 0ms infinite alternate-reverse;
-            text-align: right;
-        }
-        #box {
-            padding:1.5rem;
-            background-color: white;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.163);
-            border-radius: 1rem;
-            
-        }
-    </style>
-</head>
+<%- include('head.ejs') %>
 <body>
     <div id="box">
-
+        <a href="/create-event"><button>Create</button></a>
     </div>
+    <%- include('footer.ejs') %>
+    <script>
+        document.title = "ScholarSync"
+    </script>
 </body>
 </html>

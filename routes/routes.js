@@ -2,6 +2,22 @@ const router = require("express").Router();
 const Message = require('../models/messageModels');
 const colors = require("../utils/colors");
 
+// index page
+router.route("/").get((req,res) => {
+    res.render("index.ejs")
+})
+
+// login page
+router.route("/login").get((req, res) => {
+    res.render("login.ejs")
+})
+
+router.route("/login").post((req, res) => {
+    res.redirect("/create-event")
+})
+
+
+// create an event
 router.route("/create-event").get((req, res) => {
     res.render("createEvent")
 })
@@ -30,6 +46,11 @@ router.route("/create-event").post(async(req, res) => {
         console.log(colors.red("ROUTER: " + e));
     }
     // await newMessage.save()
+})
+
+// done page
+router.route("/done").get((req, res) => {
+    res.render("done.ejs")
 })
 
 
